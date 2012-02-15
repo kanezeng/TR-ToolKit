@@ -15,10 +15,10 @@ public class LevenshteinDistance {
 	 * Return the distrance of the 2 given strings.
 	 * @param primary	The first string
 	 * @param secondary	The second string
-	 * @param maxDiffPercent	The max allowed different percentage, if the the different percentage is higher than its value, skip calculation to improve performance
+	 * @param maxDiffPercentage	The max allowed different percentage (0-100), if the the different percentage is higher than its value, skip calculation to improve performance
 	 * @return			the distrance of the 2 given strings.
 	 */
-	public static int getDistance(String primary, String secondary, int maxDiffPercent) {
+	public static int getDistance(String primary, String secondary, int maxDiffPercentage) {
 		int result = 0;
 		
 		int primarylength = primary.length();
@@ -28,7 +28,7 @@ public class LevenshteinDistance {
 		
 		// if the length of the 2 given strings are far different from each other, skip calculation
 		int maxLength = Math.max(primarylength,secondarylength);
-		int maxDiff = maxLength*maxDiffPercent/100;
+		int maxDiff = maxLength*maxDiffPercentage/100;
 		if (maxLength==primarylength && secondarylength<primarylength-maxDiff) return maxLength;
 		if (maxLength==secondarylength && primarylength<secondarylength-maxDiff) return maxLength;
 		
@@ -64,6 +64,54 @@ public class LevenshteinDistance {
 	 */
 	public static int getDistance(String primary, String secondary) {
 		return getDistance(primary, secondary,100);
+	}
+	
+	/**
+	 * Return the different percentage of two given strings
+	 * @param primary	The first string
+	 * @param secondary	The second string
+	 * @param maxDiffPercentage	The max allowed different percentage.
+	 * @return			An int value 0-100 represents the difference between the two given strings.
+	 */
+	public static int getDifferentPercentage(String primary, String secondary, int maxDiffPercentage) {
+		int result = 100;
+		if (primary.length()==0 && secondary.length()==0) {
+			result = 0;
+		} else {
+			result = 100*getDistance(primary,secondary,maxDiffPercentage)/Math.max(primary.length(), secondary.length());
+		}
+		return result;
+	}
+	/**
+	 * Return the different percentage of two given strings
+	 * @param primary	The first string
+	 * @param secondary	The second string
+	 * @return			An int value 0-100 represents the difference between the two given strings.
+	 */
+	public static int getDifferentPercentage(String primary, String secondary) {
+		return getDifferentPercentage(primary,secondary,100);
+	}
+
+	/**
+	 * Return the similar percentage of two given strings
+	 * @param primary	The first string
+	 * @param secondary	The second string
+	 * @param maxDiffPercentage	The max allowed different percentage.
+	 * @return			An int value 0-100 represents the similar rate between the two given strings.
+	 */
+	public static int getSimilarPercentage(String primary, String secondary, int maxDiffPercentage) {
+		return 100-getDifferentPercentage(primary,secondary,maxDiffPercentage);
+	}
+	
+
+	/**
+	 * Return the similar percentage of two given strings
+	 * @param primary	The first string
+	 * @param secondary	The second string
+	 * @return			An int value 0-100 represents the similar rate between the two given strings.
+	 */
+	public static int getSimilarPercentage(String primary, String secondary) {
+		return 100-getDifferentPercentage(primary,secondary,100);
 	}
 
 }

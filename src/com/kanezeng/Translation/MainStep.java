@@ -21,6 +21,9 @@ public class MainStep {
 //		System.out.println(Native2ASCII.toASCII("w≈∂ «‘¯÷æº·haha!"));
 		// Test LevenshteinDistance
 		System.out.println(LevenshteinDistance.getDistance("This is Kane", "Tha is Kane"));
+		System.out.println(LevenshteinDistance.getDifferentPercentage("This is Kane", "Tha is Kane"));
+		System.out.println(LevenshteinDistance.getSimilarPercentage("This is Kane", "Thass is Kane"));
+		System.out.println(LevenshteinDistance.getSimilarPercentage("This is Kane", "Thass is Kane",1));
 	}
 
 }
