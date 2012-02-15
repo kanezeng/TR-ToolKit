@@ -16,7 +16,9 @@ public class MainStep {
 	 */
 	public static void main(String[] args) {
 		// Test Native2ASCII.toASCII()
-		System.out.println(Native2ASCII.toASCII("w哦是曾志坚haha!"));
+//		System.out.println(Native2ASCII.toASCII("w哦是曾志坚haha!"));
+		// Test LevenshteinDistance
+		System.out.println(LevenshteinDistance.getDistance("This is Kane", "Tha is Kane"));
 	}
 
 }
