@@ -6,6 +6,7 @@
 package com.kanezeng.Translation;
 
 import com.kanezeng.Translation.StringProcessing.LevenshteinDistance;
+import com.kanezeng.Translation.StringProcessing.WordCount;
 
 /**
  * This is use by Kane to test the APIs only.
@@ -20,10 +21,12 @@ public class MainStep {
 		// Test Native2ASCII.toASCII()
 //		System.out.println(Native2ASCII.toASCII("w≈∂ «‘¯÷æº·haha!"));
 		// Test LevenshteinDistance
-		System.out.println(LevenshteinDistance.getDistance("This is Kane", "Tha is Kane"));
-		System.out.println(LevenshteinDistance.getDifferentPercentage("This is Kane", "Tha is Kane"));
-		System.out.println(LevenshteinDistance.getSimilarPercentage("This is Kane", "Thass is Kane"));
-		System.out.println(LevenshteinDistance.getSimilarPercentage("This is Kane", "Thass is Kane",1));
+//		System.out.println(LevenshteinDistance.getDistance("This is Kane", "Tha is Kane"));
+//		System.out.println(LevenshteinDistance.getDifferentPercentage("This is Kane", "Tha is Kane"));
+//		System.out.println(LevenshteinDistance.getSimilarPercentage("This is Kane", "Thass is Kane"));
+//		System.out.println(LevenshteinDistance.getSimilarPercentage("This is Kane", "Thass is Kane",1));
+		// Test Word Count
+		System.out.println(WordCount.getWordCount("     haha I am Kane!    "));
 	}
 
 }
