@@ -3,7 +3,7 @@
  *  Email: me@kanezeng.com
  *	This file is created at 2012-2-15
  */
-package com.kanezeng.Translation;
+package com.kanezeng.Translation.Encodings;
 
 /**
  * The class provide a method to convert native characters to unicode excaped format like: \u0a31

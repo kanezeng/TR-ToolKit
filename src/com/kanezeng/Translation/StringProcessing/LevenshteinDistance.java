@@ -3,7 +3,7 @@
  *  Email: me@kanezeng.com
  *	This file is created at 2012-2-15
  */
-package com.kanezeng.Translation;
+package com.kanezeng.Translation.StringProcessing;
 
 /**
  * 

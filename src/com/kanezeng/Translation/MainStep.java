@@ -5,6 +5,8 @@
  */
 package com.kanezeng.Translation;
 
+import com.kanezeng.Translation.StringProcessing.LevenshteinDistance;
+
 /**
  * This is use by Kane to test the APIs only.
  * You can simply ignore it.
