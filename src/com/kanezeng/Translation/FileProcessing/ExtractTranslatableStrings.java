@@ -6,6 +6,7 @@
 package com.kanezeng.Translation.FileProcessing;
 
 import java.util.ArrayList;
+import java.io.*;
 
 import com.kanezeng.Translation.EngObjects.ParsingRule;
 import com.kanezeng.Translation.EngObjects.TUnit;
@@ -16,6 +17,11 @@ import com.kanezeng.Translation.EngObjects.TUnit;
 public class ExtractTranslatableStrings {
 	public ArrayList<TUnit> doExtract(String fileNameAndPath, String fileEncoding, ArrayList<ParsingRule> allRules) {
 		ArrayList<TUnit> result = new ArrayList<TUnit>();
+		//Check if file is existed, return empty result if the file is not existed.
+		File inputfile = new File(fileNameAndPath);
+		if(!inputfile.exists()) return result;
+		
+		
 		
 		return result;
 	}
