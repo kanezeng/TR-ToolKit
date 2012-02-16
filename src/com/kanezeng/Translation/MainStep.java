@@ -5,8 +5,14 @@
  */
 package com.kanezeng.Translation;
 
+import java.util.ArrayList;
+
+import com.kanezeng.Translation.EngObjects.ParsingRule;
+import com.kanezeng.Translation.EngObjects.TUnit;
+import com.kanezeng.Translation.FileProcessing.ExtractTranslatableStrings;
 import com.kanezeng.Translation.StringProcessing.LevenshteinDistance;
 import com.kanezeng.Translation.StringProcessing.WordCount;
+import com.kanezeng.Translation.Utils.FileIO;
 
 /**
  * This is use by Kane to test the APIs only.
@@ -26,7 +32,15 @@ public class MainStep {
 //		System.out.println(LevenshteinDistance.getSimilarPercentage("This is Kane", "Thass is Kane"));
 //		System.out.println(LevenshteinDistance.getSimilarPercentage("This is Kane", "Thass is Kane",1));
 		// Test Word Count
-		System.out.println(WordCount.getWordCount("     haha I am Kane!    "));
+//		System.out.println(WordCount.getWordCount("     haha I am Kane!    "));
+		// Test extracting translatable strings
+		ArrayList<ParsingRule> allRules = new ArrayList<ParsingRule>();
+		allRules.add(new ParsingRule("^(.*?)=(.*?)$",1,2));
+//		FileIO.createFile("hah.txt", "test");
+		for (TUnit tempUnit:ExtractTranslatableStrings.doExtract("Sample/BasicResourceFile.txt", "UTF-8", allRules)) {
+			System.out.print("ID:"+tempUnit.ID+"\n");
+			System.out.print("String:"+tempUnit.originalString+"\n");
+		}
 	}
 
 }

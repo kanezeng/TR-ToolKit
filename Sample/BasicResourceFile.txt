@@ -1,0 +1,2 @@
+StringA=Hello World!
+StringB=This is Kane!

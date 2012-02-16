@@ -33,6 +33,7 @@ public class FileIO {
 			sb.append(str);
 			sb.append("\n");
 		}
+		result = sb.toString();
 		return result;
 	}
 
