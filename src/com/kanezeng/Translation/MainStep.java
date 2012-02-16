@@ -7,6 +7,7 @@ package com.kanezeng.Translation;
 
 import java.util.ArrayList;
 
+import com.kanezeng.Translation.Encodings.ConvertEncoding;
 import com.kanezeng.Translation.EngObjects.ParsingRule;
 import com.kanezeng.Translation.EngObjects.TUnit;
 import com.kanezeng.Translation.FileProcessing.ExtractTranslatableStrings;
@@ -34,13 +35,14 @@ public class MainStep {
 		// Test Word Count
 //		System.out.println(WordCount.getWordCount("     haha I am Kane!    "));
 		// Test extracting translatable strings
-		ArrayList<ParsingRule> allRules = new ArrayList<ParsingRule>();
-		allRules.add(new ParsingRule("^(.*?)=(.*?)$",1,2));
-//		FileIO.createFile("hah.txt", "test");
-		for (TUnit tempUnit:ExtractTranslatableStrings.doExtract("Sample/BasicResourceFile.txt", "UTF-8", allRules)) {
-			System.out.print("ID:"+tempUnit.ID+"\n");
-			System.out.print("String:"+tempUnit.originalString+"\n");
-		}
+//		ArrayList<ParsingRule> allRules = new ArrayList<ParsingRule>();
+//		allRules.add(new ParsingRule("^(.*?)=(.*?)$",1,2));
+//		for (TUnit tempUnit:ExtractTranslatableStrings.doExtract("Sample/BasicResourceFile.txt", "UTF-8", allRules)) {
+//			System.out.print("ID:"+tempUnit.ID+"\n");
+//			System.out.print("String:"+tempUnit.originalString+"\n");
+//		}
+		// Test encoding conversion
+		ConvertEncoding.convert("Sample/UTF8Sample.txt","Sample/GBKOutput.txt","UTF-8","GBK");
 	}
 
 }
