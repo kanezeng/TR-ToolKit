@@ -39,7 +39,7 @@ public class Native2ASCII {
 		if (myresult.toLowerCase().startsWith("\\ufeff")) {
 			myresult = myresult.substring(6);
 		}
-			
+	
 		return myresult;
 	}
 }

@@ -6,6 +6,7 @@
 package com.kanezeng.Translation;
 
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import com.kanezeng.Translation.Encodings.ConvertEncoding;
 import com.kanezeng.Translation.EngObjects.ParsingRule;
@@ -42,7 +43,10 @@ public class MainStep {
 //			System.out.print("String:"+tempUnit.originalString+"\n");
 //		}
 		// Test encoding conversion
-		ConvertEncoding.convert("Sample/UTF8Sample.txt","Sample/GBKOutput.txt","UTF-8","GBK");
+//		ConvertEncoding.convert("Sample/UTF8Sample.txt","Sample/GBKOutput.txt","UTF-8","GBK");
+		
 	}
-
+	
+	
+	
 }

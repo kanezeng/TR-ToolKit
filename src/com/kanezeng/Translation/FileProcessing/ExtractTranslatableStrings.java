@@ -28,7 +28,7 @@ public class ExtractTranslatableStrings {
 			String filecontent = FileIO.readFileToString(fileNameAndPath, fileEncoding);
 
 			for (ParsingRule currentRule:allRules) {
-				// Note: You need (?m) so Java will consider the line feeds in the string. Otherwise, it will consider it as a single line string.
+				// Note from Kane: You need (?m) so Java will consider the line feeds in the string. Otherwise, it will consider it as a single line string.
 				Pattern tempPattern = Pattern.compile("(?m)"+currentRule.rule);
 				Matcher tempMatcher = tempPattern.matcher(filecontent);
 				while(tempMatcher.find()) {
