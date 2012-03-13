@@ -15,4 +15,5 @@ public class LanguageObject {
 	public String pseudoSurfix = "";
 	public String nameEnglish = "";
 	public String nameLocalized = "";
+	public String languageCountryCode = "";
 }

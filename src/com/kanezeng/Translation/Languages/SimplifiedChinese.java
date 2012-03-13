@@ -11,10 +11,11 @@ package com.kanezeng.Translation.Languages;
 public class SimplifiedChinese extends LanguageObject {
 	SimplifiedChinese() {
 		this.nameEnglish = "Simplified Chinese";
-		this.nameLocalized = "¼òÌåÖĞÎÄ";
+		this.nameLocalized = "ç®€ä½“ä¸­æ–‡";
 		this.twoLetterCode = "CN";
 		this.threeLetterCode = "CHS";
-		this.pseudoPrefix = "¿ªÊ¼";
-		this.pseudoSurfix = "½áÊø";
+		this.languageCountryCode="zh-CN";
+		this.pseudoPrefix = "å¼€å§‹";
+		this.pseudoSurfix = "ç»“æŸ";
 	}
 }
