@@ -36,8 +36,8 @@ public class XLIFFFile {
 	 *            can be used in recreating the original file, from the <source>
 	 *            content, or the translated file, from the <target> content.
 	 */
-	public void create(ArrayList<TUnit> translationUnits, String inputFile,
-			String outputFile, String sourceLanguage) {
+	public void create(ArrayList<TUnit> translationUnits, String outputFile,
+			String sourceLanguage) {
 
 		Collections.sort(translationUnits);
 

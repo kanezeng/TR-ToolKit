@@ -51,7 +51,7 @@ public class MainStep {
 				"UTF-8", allRules));
 
 		XLIFFFile tempFile = new XLIFFFile();
-		tempFile.create(allUnits, resourceFile, outputXFile, "enu");
+		tempFile.create(allUnits, outputXFile, "enu");
 		// Test encoding conversion
 		// ConvertEncoding.convert("Sample/UTF8Sample.txt","Sample/GBKOutput.txt","UTF-8","GBK");
 
