@@ -1,0 +1,2 @@
+StringA=Hello Kane!
+StringB=This is the second file!

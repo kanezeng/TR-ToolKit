@@ -37,15 +37,19 @@ public class MainStep {
 		// Test extracting translatable strings
 		ArrayList<ParsingRule> allRules = new ArrayList<ParsingRule>();
 		allRules.add(new ParsingRule("^(.*?)=(.*?)$", 1, 2));
-		for (TUnit tempUnit : ExtractTranslatableStrings.doExtract(
-				"Sample/BasicResourceFile.txt", "UTF-8", allRules)) {
-			System.out.print("ID:" + tempUnit.ID + "\n");
-			System.out.print("String:" + tempUnit.originalString + "\n");
-		}
+		// for (TUnit tempUnit : ExtractTranslatableStrings.doExtract(
+		// "Sample/BasicResourceFile.txt", "UTF-8", allRules)) {
+		// System.out.print("ID:" + tempUnit.ID + "\n");
+		// System.out.print("String:" + tempUnit.originalString + "\n");
+		// }
 		String resourceFile = "Sample/BasicResourceFile.txt";
+		String resourceFile2 = "Sample/BasicResourceFile2.txt";
 		String outputXFile = "Sample/BasicResourceFile.xliff";
 		ArrayList<TUnit> allUnits = ExtractTranslatableStrings.doExtract(
-				resourceFile, "UTF-8", allRules);
+				resourceFile2, "UTF-8", allRules);
+		allUnits.addAll(ExtractTranslatableStrings.doExtract(resourceFile,
+				"UTF-8", allRules));
+
 		XLIFFFile tempFile = new XLIFFFile();
 		tempFile.create(allUnits, resourceFile, outputXFile, "enu");
 		// Test encoding conversion

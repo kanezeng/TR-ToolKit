@@ -11,7 +11,7 @@ import com.kanezeng.Translation.StringProcessing.WordCount;
 /**
  * Represents a translation unit
  */
-public class TUnit {
+public class TUnit implements Comparable<TUnit> {
 	public String originalFile = "";
 	public String ID = "";
 	public String originalString = "";
@@ -19,18 +19,26 @@ public class TUnit {
 	public TStatus translationStatus = TranslationStatus.UNTRANSLATED;
 	// fuzzyRate equals 100 means this is a full match
 	public int fuzzyRate = 100;
-	
+
 	public TUnit(String filename, String ID, String original) {
-		this.originalFile=filename;
+		this.originalFile = filename;
 		this.ID = ID;
-		this.originalString=original;
+		this.originalString = original;
 	}
-	
+
 	/**
 	 * Get the word count of this translation unit.
-	 * @return An integer value showing how many words can be found in the original string.
+	 * 
+	 * @return An integer value showing how many words can be found in the
+	 *         original string.
 	 */
-	public int getWordCount(){
+	public int getWordCount() {
 		return WordCount.getWordCount(this.originalString);
 	}
+
+	@Override
+	public int compareTo(TUnit anotherUnit) {
+		return (this.originalFile.compareTo(anotherUnit.originalFile));
+	}
+
 }

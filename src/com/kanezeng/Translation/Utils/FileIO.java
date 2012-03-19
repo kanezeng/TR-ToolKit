@@ -5,8 +5,16 @@
  */
 package com.kanezeng.Translation.Utils;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  * This is used to read and write files.
@@ -67,6 +75,7 @@ public class FileIO {
 			}
 		} catch (Exception e) {
 		}
+
 		return result;
 	}
 
@@ -126,12 +135,13 @@ public class FileIO {
 		} catch (Exception e) {
 		}
 	}
-	
 
 	/**
 	 * This method will delete the target file
-	 * @param filePathAndName	the file name and path
-	 * @return					return true if the file is deleted.
+	 * 
+	 * @param filePathAndName
+	 *            the file name and path
+	 * @return return true if the file is deleted.
 	 */
 	public static boolean deleteFile(String filePathAndName) {
 		boolean bea = false;
@@ -148,24 +158,26 @@ public class FileIO {
 		}
 		return bea;
 	}
-	
 
 	/**
 	 * Copy a file to another place
-	 * @param oldPathFile	The file to be copied.
-	 * @param newPathFile	The target file
+	 * 
+	 * @param oldPathFile
+	 *            The file to be copied.
+	 * @param newPathFile
+	 *            The target file
 	 */
 	public static void copyFile(String oldPathFile, String newPathFile) {
 		try {
 			int bytesum = 0;
 			int byteread = 0;
 			File oldfile = new File(oldPathFile);
-			if (oldfile.exists()) { 
-				InputStream inStream = new FileInputStream(oldPathFile); 
+			if (oldfile.exists()) {
+				InputStream inStream = new FileInputStream(oldPathFile);
 				FileOutputStream fs = new FileOutputStream(newPathFile);
 				byte[] buffer = new byte[1444];
 				while ((byteread = inStream.read(buffer)) != -1) {
-					bytesum += byteread; 
+					bytesum += byteread;
 					System.out.println(bytesum);
 					fs.write(buffer, 0, byteread);
 				}

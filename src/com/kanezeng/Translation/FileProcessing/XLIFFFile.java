@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import com.kanezeng.Translation.EngObjects.TUnit;
 import com.kanezeng.Translation.Languages.LanguageObject;
@@ -20,7 +21,6 @@ import com.kanezeng.Translation.Languages.Languages;
  */
 public class XLIFFFile {
 
-	private String inputFile;
 	private LanguageObject sourceLanguage = Languages.defaultLanguage();
 	private FileOutputStream output;
 
@@ -38,19 +38,29 @@ public class XLIFFFile {
 	 */
 	public void create(ArrayList<TUnit> translationUnits, String inputFile,
 			String outputFile, String sourceLanguage) {
+
+		Collections.sort(translationUnits);
+
 		try {
 			output = new FileOutputStream(outputFile);
-			this.inputFile = inputFile;
+			String currentFile = "";
 			this.sourceLanguage = Languages.getLanguage(sourceLanguage);
 			// segId = 0;
 			writeXLIFFHead();
 			for (TUnit tempUnit : translationUnits) {
-				writeString("<trans-unit id='" + cleanString(tempUnit.ID)
+				if (!tempUnit.originalFile.equalsIgnoreCase(currentFile)) {
+					if (!currentFile.isEmpty()) {
+						endFile();
+					}
+					currentFile = tempUnit.originalFile;
+					startFile(currentFile);
+				}
+				writeString("\t\t\t<trans-unit id='" + cleanString(tempUnit.ID)
 						+ "'>\n");
-				writeString("<source>"
+				writeString("\t\t\t\t<source>"
 						+ cleanString(preTranslate(tempUnit.originalString))
 						+ "</source>\n");
-				writeString("</trans-unit>\n");
+				writeString("\t\t\t</trans-unit>\n");
 			}
 			writeXLIFFTrail();
 			output.close();
@@ -68,10 +78,13 @@ public class XLIFFFile {
 	}
 
 	private void writeXLIFFTrail() throws IOException {
-
-		writeString("</body>\n");
-		writeString("</file>\n");
+		endFile();
 		writeString("</xliff>");
+	}
+
+	private void endFile() throws UnsupportedEncodingException, IOException {
+		writeString("\t\t</body>\n");
+		writeString("\t</file>\n");
 	}
 
 	private void writeXLIFFHead() throws UnsupportedEncodingException,
@@ -79,10 +92,13 @@ public class XLIFFFile {
 
 		writeString("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
 		writeString("<xliff version='1.2' xmlns='urn:oasis:names:tc:xliff:document:1.2'>\n");
-		writeString("<file original=\"" + inputFile + "\" source-language=\""
-				+ sourceLanguage.languageCountryCode + "\">\n");
-		writeString("<body>\n");
+	}
 
+	private void startFile(String filename)
+			throws UnsupportedEncodingException, IOException {
+		writeString("\t<file original=\"" + filename + "\" source-language=\""
+				+ sourceLanguage.languageCountryCode + "\">\n");
+		writeString("\t\t<body>\n");
 	}
 
 	private void writeString(String string)
