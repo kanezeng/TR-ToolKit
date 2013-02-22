@@ -11,6 +11,7 @@ import com.kanezeng.Translation.EngObjects.ParsingRule;
 import com.kanezeng.Translation.EngObjects.TUnit;
 import com.kanezeng.Translation.FileProcessing.ExtractTranslatableStrings;
 import com.kanezeng.Translation.FileProcessing.XLIFFFile;
+import com.kanezeng.Translation.StringProcessing.LevenshteinDistance;
 
 /**
  * This is use by Kane to test the APIs only. You can simply ignore it.
@@ -23,9 +24,8 @@ public class MainStep {
 	public static void main(String[] args) {
 		// Test Native2ASCII.toASCII()
 		// System.out.println(Native2ASCII.toASCII("wŶ����־��haha!"));
-		// Test LevenshteinDistance
-		// System.out.println(LevenshteinDistance.getDistance("This is Kane",
-		// "Tha is Kane"));
+//		 Test LevenshteinDistance
+		 System.out.println(LevenshteinDistance.getDistance("This is Kane",		 "Tha is Kane"));
 		// System.out.println(LevenshteinDistance.getDifferentPercentage("This is Kane",
 		// "Tha is Kane"));
 		// System.out.println(LevenshteinDistance.getSimilarPercentage("This is Kane",
