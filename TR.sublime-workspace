@@ -14,6 +14,25 @@
 				"buffer_size": 2595,
 				"line_ending": "Windows"
 			}
+		},
+		{
+			"file": "src/com/kanezeng/Translation/Languages/SimplifiedChinese.java",
+			"settings":
+			{
+				"buffer_size": 540,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "/**\n *  Copyright 2012 Zhijian Zeng, All Rights Reserved.\n *  Email: me@kanezeng.com\n *	This file is created at Mar 13, 2012\n */\npackage com.kanezeng.Translation.Languages;\n\n/**\n * \n */\npublic class Languages {\n	public static LanguageObject getLanguage(String languageCode) {\n		\n		if (languageCode.equalsIgnoreCase(\"en\")\n				|| languageCode.equalsIgnoreCase(\"enu\")\n				|| languageCode.equalsIgnoreCase(\"en-us\")) {\n			return new USEnglish();\n		} else if (languageCode.equalsIgnoreCase(\"cn\")\n				|| languageCode.equalsIgnoreCase(\"chs\")\n				|| languageCode.equalsIgnoreCase(\"zh-cn\")) {\n			return new SimplifiedChinese();\n		}\n		return null;\n	}\n\n	public static LanguageObject defaultLanguage() {\n		return new USEnglish();\n	}\n}\n",
+			"file": "src/com/kanezeng/Translation/Languages/Languages.java",
+			"file_size": 747,
+			"file_write_time": 130060226511039889,
+			"settings":
+			{
+				"buffer_size": 722,
+				"line_ending": "Windows"
+			}
 		}
 	],
 	"build_system": "Packages/User/OttoUI.sublime-build",
@@ -128,6 +147,7 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -154,6 +174,59 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 331.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/com/kanezeng/Translation/Languages/SimplifiedChinese.java",
+					"settings":
+					{
+						"buffer_size": 540,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/com/kanezeng/Translation/Languages/Languages.java",
+					"settings":
+					{
+						"buffer_size": 722,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								278,
+								278
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -206,6 +279,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"lan",
+				"src/com/kanezeng/Translation/Languages/Languages.java"
+			],
+			[
+				"simchi",
+				"src/com/kanezeng/Translation/Languages/SimplifiedChinese.java"
+			],
 			[
 				"build",
 				"build.xml"

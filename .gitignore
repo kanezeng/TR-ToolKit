@@ -3,6 +3,8 @@
 #################
 
 *.pydevproject
+*.sublime-workspace
+*.gitignore
 .project
 .metadata
 bin/
