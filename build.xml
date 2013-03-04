@@ -48,7 +48,7 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="MainStep">
+    <target depends="build-project" name="MainStep">
         <java classname="com.kanezeng.Translation.MainStep" failonerror="true" fork="yes">
             <classpath refid="TR-ToolKit.classpath"/>
         </java>
