@@ -26,12 +26,12 @@ public class MainStep {
 		// System.out.println(Native2ASCII.toASCII("wŶ����־��haha!"));
 //		 Test LevenshteinDistance
 		 System.out.println(LevenshteinDistance.getDistance("This is Kane!!",		 "Tha is Kane"));
-		// System.out.println(LevenshteinDistance.getDifferentPercentage("This is Kane",
-		// "Tha is Kane"));
-		// System.out.println(LevenshteinDistance.getSimilarPercentage("This is Kane",
-		// "Thass is Kane"));
-		// System.out.println(LevenshteinDistance.getSimilarPercentage("This is Kane",
-		// "Thass is Kane",1));
+		System.out.println(LevenshteinDistance.getDifferentPercentage("This is Kane",
+		"Tha is Kane"));
+		System.out.println(LevenshteinDistance.getSimilarPercentage("This is Kane",
+		"Thass is Kane"));
+		System.out.println(LevenshteinDistance.getSimilarPercentage("This is Kane",
+		"Thass is Kane",1));
 		// Test Word Count
 		// System.out.println(WordCount.getWordCount("     haha I am Kane!    "));
 		// Test extracting translatable strings
