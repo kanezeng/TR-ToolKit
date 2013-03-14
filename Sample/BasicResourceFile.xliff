@@ -8,6 +8,9 @@
 			<trans-unit id='StringB'>
 				<source>This is Kane!</source>
 			</trans-unit>
+			<trans-unit id='StringC'>
+				<source>This is Yolanda Xia.</source>
+			</trans-unit>
 		</body>
 	</file>
 	<file original="Sample/BasicResourceFile2.txt" source-language="en-US">

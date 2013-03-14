@@ -8,6 +8,7 @@ package com.kanezeng.Translation;
 import java.util.ArrayList;
 
 import com.kanezeng.Translation.EngObjects.ParsingRule;
+import com.kanezeng.Translation.EngObjects.ExcludeRule;
 import com.kanezeng.Translation.EngObjects.TUnit;
 import com.kanezeng.Translation.FileProcessing.ExtractTranslatableStrings;
 import com.kanezeng.Translation.FileProcessing.XLIFFFile;
@@ -33,9 +34,12 @@ public class MainStep {
 		// System.out.println(WordCount.getWordCount("     haha I am Kane!    "));
 		// Test extracting translatable strings
 		ArrayList<ParsingRule> allRules = new ArrayList<ParsingRule>();
+		ArrayList<ExcludeRule> allExclude = new ArrayList<ExcludeRule>();
+
 		allRules.add(new ParsingRule("^(.*?)=(.*?)$", 1, 2));
+		allExclude.add(new ExcludeRule("^StringC.*?$"));
 		for (TUnit tempUnit : ExtractTranslatableStrings.doExtract(
-			"Sample/BasicResourceFile.txt", "UTF-8", allRules)) {
+			"Sample/BasicResourceFile.txt", "UTF-8", allExclude, allRules)) {
 			System.out.print("ID:" + tempUnit.ID + "\n");
 			System.out.print("String:" + tempUnit.originalString + "\n");
 		}

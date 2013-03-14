@@ -1,2 +1,3 @@
 StringA=Hello World!
 StringB=This is Kane!
+StringC=This is Yolanda Xia.

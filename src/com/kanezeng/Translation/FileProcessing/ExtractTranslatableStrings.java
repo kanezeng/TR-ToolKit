@@ -42,7 +42,7 @@ public class ExtractTranslatableStrings {
 
 			// Remove strings matched by Exclude rules.
 			for (ExcludeRule currentExclude:allExcludeRule) {
-				filecontent = replaceString(filecontent, currentExclude.rule, "");
+				filecontent = replaceString(filecontent, "(?m)"+currentExclude.rule, "");
 			}
 
 			for (ParsingRule currentRule:allParsingRule) {
@@ -64,11 +64,12 @@ public class ExtractTranslatableStrings {
 	private static String replaceString(String src, String regEx, String rep) {
 		Pattern pat = Pattern.compile(regEx);
 		Matcher matcher = pat.matcher(src);
-		if (matcher.find()) {
-			return matcher.replaceAll(rep);
+		String result = src;
+
+		while(matcher.find()) {
+			result = result.replace(matcher.group(0),"");
 		}
-		else {
-			return null;
-		}
+
+		return result;
 	}
 }
