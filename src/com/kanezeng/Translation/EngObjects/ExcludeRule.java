@@ -12,6 +12,6 @@ public class ExcludeRule {
 	public String rule = "";
 	
 	public ExcludeRule(String rule) {
-		this.indexOfID = indexOfID;
+		this.rule = rule;
 	}
 }
