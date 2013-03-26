@@ -53,6 +53,7 @@ public class Native2ASCII {
 		return (byte) ((i > 127) ? i - 256 : i);
 
 	}
+	
 	public static String toASCII(String str) {
 		StringBuilder sb = new StringBuilder();
 		
