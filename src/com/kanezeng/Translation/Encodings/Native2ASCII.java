@@ -11,7 +11,48 @@ package com.kanezeng.Translation.Encodings;
 public class Native2ASCII {
 
 	private static String hexString="0123456789ABCDEF";
-	
+
+	public static String toNative(String str) {
+		StringBuffer buf = new StringBuffer();
+
+		for (int i = 0; i < str.length(); i++) {
+
+			char c = str.charAt(i);
+
+			if (c == '\\' && i + 6 <= str.length() && str.charAt(i + 1) == 'u') {
+				String sub = str.substring(i + 2, i + 6).toUpperCase();
+				int i0 = hexString.indexOf(sub.charAt(0));
+				int i1 = hexString.indexOf(sub.charAt(1));
+				int i2 = hexString.indexOf(sub.charAt(2));
+				int i3 = hexString.indexOf(sub.charAt(3));
+
+				if (i0 < 0 || i1 < 0 || i2 < 0 || i3 < 0) {
+					buf.append("\\u");
+					i += 1;
+				} else {
+					byte[] data = new byte[2];
+					data[0] = i2b(i1 + i0 * 16);
+					data[1] = i2b(i3 + i2 * 16);
+					try {
+						buf.append(new String(data, "UTF-16BE").toString());
+					} catch (Exception ex) {
+						buf.append("\\u" + sub);
+					}
+					i += 5;
+				}
+			} else {
+				buf.append(c);
+			}
+		}
+
+		return buf.toString();
+	}
+
+	private static byte i2b(int i) {
+
+		return (byte) ((i > 127) ? i - 256 : i);
+
+	}
 	public static String toASCII(String str) {
 		StringBuilder sb = new StringBuilder();
 		
