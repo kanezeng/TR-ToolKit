@@ -9,8 +9,10 @@ This is a set of light weight APIs provided for people who are doing **g11n/i18n
 3. Extract translatable strings from specified file.
 4. Calculate the word count of translatable strings.
 5. Calculate the difference between two given strings.
-6. more features will be added from time to time...
+6. Leverage previous translation from given translation memories.
 7. Export translatable strings to a XLIFF file.
+8. Pseudo translate untranslated strings.
+9. more features will be added from time to time...
 
 ## What I am thinking now:
 
