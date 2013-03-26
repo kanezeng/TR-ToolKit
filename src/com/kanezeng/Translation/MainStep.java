@@ -13,6 +13,8 @@ import com.kanezeng.Translation.EngObjects.TUnit;
 import com.kanezeng.Translation.FileProcessing.ExtractTranslatableStrings;
 import com.kanezeng.Translation.FileProcessing.XLIFFFile;
 import com.kanezeng.Translation.StringProcessing.LevenshteinDistance;
+import com.kanezeng.Translation.StringProcessing.PseudoTranslate;
+import com.kanezeng.Translation.Languages.Languages;
 
 /**
  * This is used by Kane to test the APIs only. You can simply ignore it.
@@ -40,8 +42,10 @@ public class MainStep {
 		allExclude.add(new ExcludeRule("^StringC.*?$"));
 		for (TUnit tempUnit : ExtractTranslatableStrings.doExtract(
 			"Sample/BasicResourceFile.txt", "UTF-8", allExclude, allRules)) {
+			tempUnit = PseudoTranslate.getPseudoTranslationUnit(tempUnit,Languages.getLanguage("chs"));
 			System.out.print("ID:" + tempUnit.ID + "\n");
 			System.out.print("String:" + tempUnit.originalString + "\n");
+			System.out.print("Translated String:" + tempUnit.translatedString + "\n");
 		}
 		String resourceFile = "Sample/BasicResourceFile.txt";
 		String resourceFile2 = "Sample/BasicResourceFile2.txt";
