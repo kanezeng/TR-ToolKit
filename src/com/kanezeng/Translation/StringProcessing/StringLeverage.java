@@ -45,7 +45,15 @@ public class StringLeverage {
 		}
 		return outputUnit;
 	}
-
+	/**
+	 * Leverage only when the input string is exact same as the one in translation memories.
+	 * @param  inputUnit           The translation unit to leverage
+	 * @param  translationMemories The translation memory
+	 * @param  checkFile           If the file name and path is considered.
+	 * @param  checkID             If the string ID is considered.
+	 * @return                     A translation unit with leveraged translation, return an empty unit if no match found.
+	 *                               Return the first matched unit.
+	 */
 	private static TUnit strictLeverage(TUnit inputUnit, ArrayList<TUnit> translationMemories, boolean checkFile, boolean checkID) {
 		TUnit outputUnit = new TUnit("","","");
 
@@ -62,7 +70,14 @@ public class StringLeverage {
 
 		return outputUnit;
 	}
-
+	/**
+	 * Leverage when the fuzzy rate is higher than given limit.
+	 * @param  inputUnit           The translation unit to leverage
+	 * @param  translationMemories The translation memory
+	 * @param  fuzzyLimit          The fuzzy limit.
+	 * @return                     A translation unit with leveraged translation, return an empty unit if no match found.
+	 *                             Return the first unit with highest fuzzy rate.
+	 */
 	private static TUnit looseLeverage(TUnit inputUnit, ArrayList<TUnit> translationMemories, int fuzzyLimit) {
 		TUnit outputUnit = new TUnit("","","");
 		int currentFuzzy = 0;
