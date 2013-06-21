@@ -6,7 +6,6 @@
 package com.kanezeng.Translation.Utils;
 
 import java.io.*;
-import java.util.StringTokenizer;
 
 /**
  * This class provides actions related to folders.
